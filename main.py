@@ -180,12 +180,12 @@ class Main():
         
         if self.datestr is None:
             now = datetime.now()
-            self.datestr = now.strftime('%m|%d-%H:%M:%S')
+            self.datestr = now.strftime('%m-%d-%H-%M-%S')
         datestr = self.datestr          
 
         paths = [
-            f'./pretrained/{dir_path}/best_{datestr}.pt',
-            f'./results/{dir_path}/{datestr}.csv',
+            f'pretrained/{dir_path}/best_{datestr}.pt',
+            f'results/{dir_path}/{datestr}.csv',
         ]
 
         for path in paths:
@@ -203,9 +203,9 @@ if __name__ == "__main__":
     parser.add_argument('-slide_win', help='slide_win', type = int, default=15)
     parser.add_argument('-dim', help='dimension', type = int, default=64)
     parser.add_argument('-slide_stride', help='slide_stride', type = int, default=5)
-    parser.add_argument('-save_path_pattern', help='save path pattern', type = str, default='')
-    parser.add_argument('-dataset', help='wadi / swat', type = str, default='wadi')
-    parser.add_argument('-device', help='cuda / cpu', type = str, default='cuda')
+    parser.add_argument('-save_path_pattern', help='save path pattern', type = str, default='test')
+    parser.add_argument('-dataset', help='wadi / swat', type = str, default='RAN')
+    parser.add_argument('-device', help='cuda / cpu', type = str, default='cpu')
     parser.add_argument('-random_seed', help='random seed', type = int, default=0)
     parser.add_argument('-comment', help='experiment comment', type = str, default='')
     parser.add_argument('-out_layer_num', help='outlayer num', type = int, default=1)
